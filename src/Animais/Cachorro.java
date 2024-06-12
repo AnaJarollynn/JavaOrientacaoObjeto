@@ -1,22 +1,11 @@
-//Encapsulamento
+package Animais;
 
-//  Visibilidade                        |     Public    |   Protected   |    Default    |    Private     |
-//A partir da mesma classe              |       V       |       V       |       V       |       V        |
-//Qualquer Classe no mesmo pacote       |       V       |       V       |       V       |       X        |
-//Qualquer Classe filha no mesmo pacote |       V       |       V       |       V       |       X        |
-//Qualquer classe filha outro pacote    |       V       |       V       |       X       |       X        |
-//Qualquer classe em pecote diferente   |       V       |       X       |       X       |       X        |
 
-public class Cachorro {
+public class Cachorro extends Animal { //Extends, herdando informações da Classe 'Animal', ou seja, 'Cachorro' é uma classe 'Filha'
 
     //Características da Classe
 
-    private String _nome;
-    private String _cor;
-    private double _altura;
-    private double _peso;
     private double _tamanhoDoRabo;
-    private String _estadoDeEspirito;
 
     //Contagem de Objetos -- Static (NÃO É ALTERADO PELA CRIAÇÃO DO OBJETO)
 
@@ -24,19 +13,11 @@ public class Cachorro {
 
     //Construtor - Torna necessárias as informações a criar o Objeto
 
-    Cachorro (String nome, String cor, double altura, double peso, double tamanhoDoRabo){
-        this._nome = nome;
-        this._cor = cor;
-        this._altura = altura;
-        this._peso = peso;
+    public Cachorro(String nome, String cor, double altura, double peso, double tamanhoDoRabo){
+        super(nome, cor, altura, peso);
         this._tamanhoDoRabo = tamanhoDoRabo;
-        this._estadoDeEspirito = "Neutro";
         QuantidadeDeCachorros++;
     }
-
-    //Sobrecarga Construtor - Torna possível a criação sem a necessidade de todas as informações acima
-
-    Cachorro(){}
 
     //Getters -- Encapsulamento -- Verificar Informações (Retornando seu valor)
 
@@ -92,14 +73,6 @@ public class Cachorro {
 
     //Métodos
 
-    public void Latir(){ //Não retorna valor (Void)
-        System.out.println("AU AU!"); //Imprime na tela o latido
-    }
-
-    public void Comer(){ //Método existe, porém não faz 'nada'
-
-    }
-
     public String Pegar(){ //Retorna uma String, no caso Bolinha
         return "Bolinha";        
     }
@@ -132,6 +105,11 @@ public class Cachorro {
     @Override
     public String toString(){
         return "Cachorro: " + _nome;
+    }
+
+    @Override
+    public void Soar() {
+        System.out.println("Au Au!");
     }
 
 }

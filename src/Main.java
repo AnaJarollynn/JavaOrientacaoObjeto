@@ -1,4 +1,6 @@
- //main precisa necessariamente ser public e estático e VOID (não retorna valor)
+import Animais.Cachorro;
+
+//main precisa necessariamente ser public e estático e VOID (não retorna valor)
  // Obrigatóriamente precisa do nome 'main'
  // Parâmetro precisa ser um array de String
  //JVM procura o método main para iniciar o Projeto
@@ -29,7 +31,7 @@ public class Main{
 
         //System.out.println(cachorro);         //O que está sendo impresso: Qual classe é, na frente do @ é onde está localizado na memória
                                                 //Cada objeto possui um endereço de memória diferente
-        cachorro.Latir();
+        cachorro.Soar();
         String oQuePegou = cachorro.Pegar();    // Criando uma variável do que o cachorro pegou
         System.out.printf("O %s pegou o(a) %s %n", cachorro.GetNome(), oQuePegou); //Imprimindo na tela
 
@@ -40,6 +42,18 @@ public class Main{
         //Pesquise sobre memória Stack e Heap//
         
         System.out.println(cachorro); //Override To String
+
+        Cachorro segundoCachorro = new Cachorro("Lyla","Preto",25.0,7.0,5.0);
+
+        //o 'segundoCachorro aponta para uma parte de mamória'
+        segundoCachorro = cachorro;
+        //Agora ele aponta para a mesma parte da memória do cachorro. Então qualquer alteração no 'cachorro', afetará o 'segundocachorro'
+        //Caso queira validar a mémória, vá na classe cachorro e comente o 'toString()'
+        
+        cachorro.SetNome("Lady");
+        System.out.println(segundoCachorro);
+        System.out.println(cachorro);
+        //As antigas informações do 'segundoCachorro' são 'deletadas' pelo GarbageCollector (Isso só acontece na memória Heap)
 
     }
 }
