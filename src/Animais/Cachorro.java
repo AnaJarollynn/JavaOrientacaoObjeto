@@ -8,6 +8,7 @@ public class Cachorro extends Animal { //Extends, herdando informações da Clas
     private double _tamanhoDoRabo;
 
     //Contagem de Objetos -- Static (NÃO É ALTERADO PELA CRIAÇÃO DO OBJETO)
+    //Essa variável pertence a Classe e não a instância
 
     static int QuantidadeDeCachorros;
 
@@ -104,7 +105,7 @@ public class Cachorro extends Animal { //Extends, herdando informações da Clas
     //Redefinir método com Override
     @Override
     public String toString(){
-        return "Cachorro: " + _nome;
+        return String.format("Cachorro: %s", this._nome);
     }
 
     @Override

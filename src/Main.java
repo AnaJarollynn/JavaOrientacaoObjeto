@@ -1,4 +1,8 @@
 import Animais.Cachorro;
+import Animais.Passaro;
+import Animais.Gato;
+import Lojas.Petshop;
+import Animais.Animal;
 
 //main precisa necessariamente ser public e estático e VOID (não retorna valor)
  // Obrigatóriamente precisa do nome 'main'
@@ -54,6 +58,29 @@ public class Main{
         System.out.println(segundoCachorro);
         System.out.println(cachorro);
         //As antigas informações do 'segundoCachorro' são 'deletadas' pelo GarbageCollector (Isso só acontece na memória Heap)
+
+        //Polimorfismo
+        //Métodos são 'Peneirados' a reeber informações específicas, no exeplo Animais, porém o Pássaro não pode ser Tosado
+        Petshop petshop = new Petshop();
+
+        petshop.DarBanho(cachorro);
+        System.out.println(cachorro.GetEstadoDeEspirito());
+
+        //Instânciando como Animal na classe e o Objeto 'Passaro'
+        //Classe de referência pode ser diferente da verdadeira
+        Animal passaro = new Passaro("Hélio","Verde",0.25,0.30); 
+
+        petshop.Tosar(passaro);
+
+        petshop.DeixarNoHotel(passaro);
+        System.out.println(passaro.GetEstadoDeEspirito());
+
+        petshop.Tosar(cachorro);
+        System.out.println(cachorro.GetEstadoDeEspirito());
+
+        Animal gatoFrajola = new Gato("Frajola","Preto e Branco",5.0,1.5);
+        gatoFrajola.Soar();
+        System.out.println(gatoFrajola);
 
     }
 }
